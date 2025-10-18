@@ -14,7 +14,7 @@ export const DeleteAvatarForm = () => {
         router.delete(account.avatarDelete().url, {
           preserveState: false,
           onBefore() {
-            if (!confirm("are you sure you want to delete you avatar?"))
+            if (!confirm("Are you sure you want to delete your avatar?"))
               return false;
             setIsPending(true);
           },
