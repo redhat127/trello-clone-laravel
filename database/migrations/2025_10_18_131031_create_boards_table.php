@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignUlid('user_id')
                 ->constrained()
                 ->cascadeOnDelete();
+            $table->string('color');
             $table->timestamps();
         });
     }

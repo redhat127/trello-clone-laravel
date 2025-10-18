@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\BoardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -41,4 +42,11 @@ Route::prefix('account')->name('account.')
         Route::post('/', 'post')->name('post');
         Route::post('/avatar', 'avatarPost')->name('avatarPost');
         Route::delete('/avatar', 'avatarDelete')->name('avatarDelete');
+    });
+
+Route::prefix('board')->name('board.')
+    ->middleware('auth')
+    ->controller(BoardController::class)
+    ->group(function () {
+        Route::post('/', 'post')->name('post');
     });
