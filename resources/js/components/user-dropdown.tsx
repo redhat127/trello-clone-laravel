@@ -1,3 +1,4 @@
+import account from "@/routes/account";
 import type { User as IUser } from "@/types";
 import { Link } from "@inertiajs/react";
 import { User } from "lucide-react";
@@ -40,7 +41,7 @@ export const UserDropDown = ({ user }: { user: IUser }) => {
         <DropdownMenuSeparator />
         <DropdownMenuItem className="p-0">
           <Link
-            href="/"
+            href={account.index().url}
             className="py-1.5 px-2 w-full flex items-center gap-2"
             onClick={() => setOpen(false)}
           >
