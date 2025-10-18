@@ -62,4 +62,19 @@ class AccountController extends Controller
             return back();
         }
     }
+
+    public function avatarDelete()
+    {
+        $prevAvatar = Auth::user()->avatar;
+
+        Auth::user()->update([
+            'avatar' => null,
+        ]);
+
+        if ($prevAvatar && Storage::fileExists($prevAvatar)) {
+            Storage::disk('public')->delete($prevAvatar);
+        }
+
+        return back();
+    }
 }

@@ -11,7 +11,7 @@ import { router, usePage } from "@inertiajs/react";
 import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import {
   Form,
   FormControl,
@@ -19,8 +19,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
+} from "../../ui/form";
+import { Input } from "../../ui/input";
+import { DeleteAvatarForm } from "./delete";
 
 export const AvatarForm = () => {
   const {
@@ -47,6 +48,7 @@ export const AvatarForm = () => {
   const onSubmit = useCallback(
     (data: AvatarSchema) => {
       router.post(account.avatarPost().url, data, {
+        preserveState: false,
         onBefore() {
           setIsPending(true);
         },
@@ -83,11 +85,14 @@ export const AvatarForm = () => {
             className="w-full h-full object-cover"
           />
         ) : avatar ? (
-          <img
-            src={avatar}
-            alt={`${name} avatar`}
-            className="w-full h-full object-cover"
-          />
+          <div className="relative">
+            <img
+              src={avatar}
+              alt={`${name} avatar`}
+              className="w-full h-full object-cover"
+            />
+            <DeleteAvatarForm />
+          </div>
         ) : (
           <div className="bg-sky-700 text-white capitalize text-xl flex items-center justify-center w-full h-full">
             {name[0]}
