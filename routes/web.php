@@ -49,4 +49,5 @@ Route::prefix('board')->name('board.')
     ->controller(BoardController::class)
     ->group(function () {
         Route::post('/', 'post')->name('post');
+        Route::delete('/{board:slug}', 'delete')->name('delete');
     });

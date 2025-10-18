@@ -12,7 +12,6 @@ export default function Home() {
       boards: { data: boards },
     },
   } = usePage<{ boards: { data: Board[] } }>();
-  console.log(boards);
   return (
     <div className="space-y-4">
       <Card>

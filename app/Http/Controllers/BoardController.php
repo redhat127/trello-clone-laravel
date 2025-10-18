@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
 use App\Traits\BoardTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -27,6 +28,17 @@ class BoardController extends Controller
         Auth::user()->boards()->create($validated);
 
         Cache::forget(BoardTrait::getCacheKey());
+
+        return back();
+    }
+
+    public function delete(Board $board)
+    {
+        if (Auth::user()->can('delete', $board)) {
+            $board->delete();
+
+            Cache::forget(BoardTrait::getCacheKey());
+        }
 
         return back();
     }
