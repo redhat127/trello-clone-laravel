@@ -16,6 +16,7 @@ class HomeController extends Controller
             return Board::select([
                 'id',
                 'title',
+                'slug',
                 'description',
                 'user_id',
                 'created_at',

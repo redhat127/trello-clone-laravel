@@ -10,6 +10,7 @@ export interface User {
 export interface Board {
   id: string;
   title: string;
+  slug: string;
   description: string | null;
   user_id: string;
   created_at: string;

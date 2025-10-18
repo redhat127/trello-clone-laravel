@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('boards', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->foreignUlid('user_id')
                 ->constrained()
