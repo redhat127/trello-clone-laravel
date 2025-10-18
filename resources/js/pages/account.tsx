@@ -14,13 +14,13 @@ export default function Account() {
           </CardTitle>
         </CardHeader>
       </Card>
-      <Card className="max-w-lg">
-        <CardContent>
+      <Card>
+        <CardContent className="max-w-lg">
           <AvatarForm />
         </CardContent>
       </Card>
-      <Card className="max-w-lg">
-        <CardContent>
+      <Card>
+        <CardContent className="max-w-lg">
           <AccountForm />
         </CardContent>
       </Card>
