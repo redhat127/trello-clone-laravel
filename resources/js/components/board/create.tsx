@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import { CreateBoardForm } from "../form/board/create";
 import { Button } from "../ui/button";
 import {
@@ -13,7 +14,10 @@ export const CreateBoard = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button type="button">Create a new Board</Button>
+        <Button type="button">
+          <Plus />
+          Create a new Board
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

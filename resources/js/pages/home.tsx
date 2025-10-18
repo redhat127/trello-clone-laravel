@@ -15,12 +15,14 @@ export default function Home() {
   console.log(boards);
   return (
     <div className="space-y-4">
-      <Card className="gap-4">
+      <Card>
         <CardHeader className="gap-0">
           <CardTitle>
-            <h1 className="font-bold text-2xl">Boards</h1>
+            <h1 className="font-bold text-2xl">Your Boards</h1>
           </CardTitle>
         </CardHeader>
+      </Card>
+      <Card>
         <CardContent>
           <CreateBoard />
         </CardContent>
