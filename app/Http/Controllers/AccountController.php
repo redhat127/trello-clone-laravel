@@ -55,7 +55,7 @@ class AccountController extends Controller
                 'avatar' => 'avatars/'.$filename,
             ]);
 
-            if ($prevAvatar && Storage::fileExists($prevAvatar)) {
+            if ($prevAvatar && Storage::disk('public')->exists($prevAvatar)) {
                 Storage::disk('public')->delete($prevAvatar);
             }
 
@@ -71,7 +71,7 @@ class AccountController extends Controller
             'avatar' => null,
         ]);
 
-        if ($prevAvatar && Storage::fileExists($prevAvatar)) {
+        if ($prevAvatar && Storage::disk('public')->exists($prevAvatar)) {
             Storage::disk('public')->delete($prevAvatar);
         }
 
