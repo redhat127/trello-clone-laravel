@@ -6,3 +6,12 @@ export interface User {
   updated_at: string;
   avatar: string | null;
 }
+
+export interface Board {
+  id: string;
+  title: string;
+  description: string | null;
+  user_id: string;
+  created_at: string;
+  updated_at: string;
+}
