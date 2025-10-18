@@ -25,7 +25,7 @@ export const AccountForm = () => {
   const {
     props: {
       auth: {
-        data: { name },
+        data: { name, email },
       },
     },
   } = usePage<{ auth: { data: User } }>();
@@ -33,6 +33,7 @@ export const AccountForm = () => {
     resolver: zodResolver(accountSchema),
     defaultValues: {
       name,
+      email,
     },
   });
   const {
@@ -79,6 +80,19 @@ export const AccountForm = () => {
               <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input {...field} autoComplete="on" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input {...field} type="email" autoComplete="on" />
               </FormControl>
               <FormMessage />
             </FormItem>

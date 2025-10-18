@@ -6,6 +6,7 @@ export const accountSchema = z.object({
     .trim()
     .min(3, "minimum for name is 3 characters.")
     .max(50, "name is too long."),
+  email: z.email("valid email is required.").max(50, "email is too long."),
 });
 
 export type AccountSchema = z.infer<typeof accountSchema>;

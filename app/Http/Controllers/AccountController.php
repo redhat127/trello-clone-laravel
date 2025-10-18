@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -18,6 +19,14 @@ class AccountController extends Controller
     {
         $validated = request()->validate([
             'name' => ['bail', 'required', 'string', 'min:3', 'max:50'],
+            'email' => [
+                'bail',
+                'required',
+                'string',
+                'email',
+                'max:50',
+                Rule::unique('users')->ignore(Auth::id()),
+            ],
         ]);
 
         Auth::user()->update($validated);
