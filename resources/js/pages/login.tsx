@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import register from "@/routes/register";
 import { Link } from "@inertiajs/react";
 import type { ReactNode } from "react";
 
@@ -23,7 +24,10 @@ export default function Login() {
         <LoginForm />
         <div className="mt-4 flex items-center gap-1">
           <p className="text-gray-600">Don't have an account?</p>
-          <Link href="/" className="underline underline-offset-4">
+          <Link
+            href={register.index()}
+            className="underline underline-offset-4"
+          >
             Register
           </Link>
         </div>
