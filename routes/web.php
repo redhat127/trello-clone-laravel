@@ -39,4 +39,6 @@ Route::prefix('account')->name('account.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'post')->name('post');
+        Route::post('/avatar', 'avatarPost')->name('avatarPost');
+        Route::delete('/avatar', 'avatarDelete')->name('avatarDelete');
     });

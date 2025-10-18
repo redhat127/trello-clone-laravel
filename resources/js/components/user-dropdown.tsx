@@ -14,14 +14,24 @@ import {
 } from "./ui/dropdown-menu";
 
 export const UserDropDown = ({ user }: { user: IUser }) => {
-  const { name, email } = user;
+  const { name, email, avatar } = user;
   const userInitials = useMemo(() => {
     return (
-      <div className="bg-sky-700 flex items-center justify-center text-white rounded-full h-8 w-8 capitalize">
-        {name[0]}
+      <div className="w-8 h-8 rounded-full overflow-hidden">
+        {avatar ? (
+          <img
+            src={avatar}
+            alt={`${name} avatar`}
+            className="object-cover w-full h-full"
+          />
+        ) : (
+          <div className="bg-sky-700 flex items-center justify-center text-white w-full h-full capitalize">
+            {name[0]}
+          </div>
+        )}
       </div>
     );
-  }, [name]);
+  }, [name, avatar]);
   const [open, setOpen] = useState(false);
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
