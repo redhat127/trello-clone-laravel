@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
@@ -29,5 +30,16 @@ class AccountController extends Controller
         Auth::user()->update($validated);
 
         return back();
+    }
+
+    public function delete()
+    {
+        $userId = Auth::id();
+
+        LogoutController::logoutAllDevicesAction(destroyUser: true);
+
+        User::destroy($userId);
+
+        return redirect()->route('home');
     }
 }

@@ -64,7 +64,7 @@ export const AccountForm = () => {
         },
         onSuccess({ props }) {
           if (!props.flashMessage) {
-            toast.success("Account saved");
+            toast.success("Your account saved");
           }
         },
       });

@@ -43,4 +43,5 @@ Route::prefix('account')
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'post')->name('post');
+        Route::delete('/', 'delete')->name('delete');
     });
