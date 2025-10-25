@@ -1,6 +1,6 @@
 <?php
 
-test('returns a successful response', function () {
+test('home returns 200 response', function () {
     $response = $this->get('/');
 
     $response->assertStatus(200);
