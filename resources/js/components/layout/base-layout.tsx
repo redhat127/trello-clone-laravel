@@ -6,13 +6,12 @@ import login from "@/routes/login";
 import type { User } from "@/types";
 import { Button } from "../ui/button";
 import { Toaster } from "../ui/sonner";
+import { UserDropdown } from "../user-dropdown";
 
 export const BaseLayout = ({ children }: { children: ReactNode }) => {
   const {
-    props: {
-      auth: { data: auth },
-    },
-  } = usePage<{ auth: { data: User } }>();
+    props: { auth },
+  } = usePage<{ auth: { data: User } | null }>();
   return (
     <>
       <header className="flex items-center justify-between px-8 p-4 bg-white border-b">
@@ -22,7 +21,9 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
             Trello Clone
           </span>
         </Link>
-        {auth ? null : (
+        {auth ? (
+          <UserDropdown user={auth.data} />
+        ) : (
           <Button asChild>
             <Link href={login.index()}>Login</Link>
           </Button>
