@@ -9,35 +9,35 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { LoginForm } from "@/form/login-form";
+import { RegisterForm } from "@/form/register-form";
 import { generateTitle } from "@/lib/utils";
-import register from "@/routes/register";
+import login from "@/routes/login";
 
-export default function Login() {
+export default function Register() {
   return (
     <>
       <Head>
-        <title>{generateTitle("Login")}</title>
+        <title>{generateTitle("Register")}</title>
       </Head>
       <div className="p-4 px-8 mt-16">
         <Card className="max-w-sm mx-auto">
           <CardHeader>
             <CardTitle>
-              <h1 className="font-bold text-2xl">Login</h1>
+              <h1 className="font-bold text-2xl">Register</h1>
             </CardTitle>
             <CardDescription>
-              <p>Use your email and password to login</p>
+              <p>Fill inputs below to register</p>
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <LoginForm />
+            <RegisterForm />
             <p className="text-gray-600 mt-4">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <Link
-                href={register.index()}
+                href={login.index()}
                 className="underline underline-offset-4 text-black"
               >
-                Register
+                Login
               </Link>
             </p>
           </CardContent>
@@ -47,4 +47,4 @@ export default function Login() {
   );
 }
 
-Login.layout = (page: ReactNode) => <BaseLayout>{page}</BaseLayout>;
+Register.layout = (page: ReactNode) => <BaseLayout>{page}</BaseLayout>;
