@@ -10,7 +10,15 @@
     "format:check": "prettier --check resources/",
     "lint": "eslint . --fix",
     "types": "tsc --noEmit",
-    "format-lint": "bunx biome check --write"
+    "format-lint": "bunx biome check --write",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "resources/js/**/*.{js,ts,jsx,tsx}": [
+        "bunx biome check --write --unsafe",
+        "eslint . --fix --max-warnings 0"
+    ],
+    "**/*.php": ["./vendor/bin/pint"]
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.0",
@@ -21,6 +29,8 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
