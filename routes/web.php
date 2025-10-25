@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -32,5 +33,14 @@ Route::prefix('logout')
     ->middleware('auth')
     ->controller(LogoutController::class)
     ->group(function () {
+        Route::post('/', 'post')->name('post');
+    });
+
+Route::prefix('account')
+    ->name('account.')
+    ->middleware('auth')
+    ->controller(AccountController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
         Route::post('/', 'post')->name('post');
     });

@@ -1,6 +1,8 @@
+import { Link } from "@inertiajs/react";
 import { User } from "lucide-react";
 import { useMemo, useState } from "react";
 import { LogoutForm } from "@/form/logout-form";
+import account from "@/routes/account";
 import type { User as IUser } from "@/types";
 import {
   DropdownMenu,
@@ -36,9 +38,17 @@ export const UserDropdown = ({ user: { name, email } }: { user: IUser }) => {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <User />
-          Account
+        <DropdownMenuItem className="p-0">
+          <Link
+            href={account.index()}
+            onClick={() => {
+              setOpen(false);
+            }}
+            className="flex items-center gap-2 w-full py-1.5 px-2"
+          >
+            <User />
+            Account
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem className="p-0">
           <LogoutForm />
