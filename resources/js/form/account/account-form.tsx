@@ -46,6 +46,7 @@ export const AccountForm = () => {
   const onSubmitHandler = useCallback(
     (data: AccountSchema) => {
       router.post(AccountController.post.url(), data, {
+        preserveScroll: true,
         onBefore() {
           setIsPending(true);
         },
