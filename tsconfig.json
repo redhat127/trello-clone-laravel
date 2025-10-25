@@ -8,7 +8,7 @@
         "isolatedModules": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "verbatimModuleSyntax": true,
+        "verbatimModuleSyntax": false,
         "strict": true,
         "noImplicitAny": true,
         "skipLibCheck": true,
