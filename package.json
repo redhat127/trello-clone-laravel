@@ -10,7 +10,7 @@
     "format:check": "prettier --check resources/",
     "lint": "eslint . --fix",
     "types": "tsc --noEmit",
-    "format-lint": "bunx biome check --write",
+    "format-lint": "bunx biome check --write --unsafe",
     "prepare": "husky"
   },
   "lint-staged": {
