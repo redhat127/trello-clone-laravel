@@ -31,7 +31,7 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
       </header>
       <main>
         {children}
-        <Toaster />
+        <Toaster position="top-center" />
       </main>
     </>
   );
