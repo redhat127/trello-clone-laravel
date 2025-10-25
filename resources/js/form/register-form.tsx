@@ -56,8 +56,10 @@ export const RegisterForm = () => {
             }
           });
         },
-        onSuccess() {
-          toast.success("You are registered");
+        onSuccess({ props }) {
+          if (!props.flashMessage) {
+            toast.success("You are registered");
+          }
         },
       });
     },

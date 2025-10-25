@@ -5,3 +5,8 @@ export interface User {
   created_at: string;
   updated_at: string;
 }
+
+export type FlashMessage = {
+  type: "error" | "success";
+  text: string;
+} | null;

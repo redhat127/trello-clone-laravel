@@ -1,17 +1,23 @@
 import { Link, usePage } from "@inertiajs/react";
 import { Trello } from "lucide-react";
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
+import { toast } from "sonner";
 import { home } from "@/routes";
 import login from "@/routes/login";
-import type { User } from "@/types";
+import type { FlashMessage, User } from "@/types";
 import { Button } from "../ui/button";
 import { Toaster } from "../ui/sonner";
 import { UserDropdown } from "../user-dropdown";
 
 export const BaseLayout = ({ children }: { children: ReactNode }) => {
   const {
-    props: { auth },
-  } = usePage<{ auth: { data: User } | null }>();
+    props: { auth, flashMessage },
+  } = usePage<{ auth: { data: User } | null; flashMessage: FlashMessage }>();
+  useEffect(() => {
+    if (flashMessage) {
+      toast[flashMessage.type](flashMessage.text);
+    }
+  }, [flashMessage]);
   return (
     <>
       <header className="flex items-center justify-between px-8 p-4 bg-white border-b">

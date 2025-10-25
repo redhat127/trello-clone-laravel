@@ -14,8 +14,10 @@ export const LogoutForm = () => {
       onFinish() {
         setIsPending(false);
       },
-      onSuccess() {
-        toast.success("You are logged out");
+      onSuccess({ props }) {
+        if (!props.flashMessage) {
+          toast.success("You are logged out");
+        }
       },
     });
   }, []);

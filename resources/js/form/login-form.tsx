@@ -57,8 +57,10 @@ export const LoginForm = () => {
             }
           });
         },
-        onSuccess() {
-          toast.success("You are logged in");
+        onSuccess({ props }) {
+          if (!props.flashMessage) {
+            toast.success("You are logged in");
+          }
         },
       });
     },
