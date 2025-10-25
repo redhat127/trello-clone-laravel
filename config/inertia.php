@@ -52,6 +52,6 @@ return [
 
     ],
 
-    'history' => ['encryption' => true],
+    'history' => ['encrypt' => true],
 
 ];
