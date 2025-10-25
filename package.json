@@ -15,8 +15,8 @@
   },
   "lint-staged": {
     "resources/js/**/*.{js,ts,jsx,tsx}": [
-        "bunx biome check --write --unsafe",
-        "eslint . --fix --max-warnings 0"
+      "bunx biome check --write --unsafe",
+      "eslint . --fix --max-warnings 0"
     ],
     "**/*.php": ["./vendor/bin/pint"]
   },
@@ -37,6 +37,7 @@
     "typescript-eslint": "^8.23.0"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "@inertiajs/react": "^2.0.0",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^19.0.3",
