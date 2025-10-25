@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class AccountController extends Controller
@@ -34,11 +34,15 @@ class AccountController extends Controller
 
     public function delete()
     {
-        $userId = Auth::id();
+        $user = Auth::user();
 
-        LogoutController::logoutAllDevicesAction(destroyUser: true);
+        LogoutController::logoutAction();
 
-        User::destroy($userId);
+        DB::transaction(function () use ($user) {
+            $user->deleteAllSessions();
+
+            $user->delete();
+        });
 
         return redirect()->route('home');
     }
