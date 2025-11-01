@@ -33,7 +33,7 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
           </Button>
         )}
       </header>
-      <main>
+      <main className="pb-8">
         {children}
         <Toaster position="top-center" />
       </main>
