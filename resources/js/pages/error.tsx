@@ -9,7 +9,7 @@ export default function ErrorPage({ statusCode, title, message }: { statusCode: 
       <Head>
         <title>{generateTitle(title)}</title>
       </Head>
-      <div className="flex min-h-screen items-center justify-center p-4 px-8">
+      <main className="flex min-h-screen items-center justify-center p-4 px-8">
         <Card className="mx-auto w-full max-w-md text-center">
           <CardHeader>
             <CardTitle>
@@ -25,7 +25,7 @@ export default function ErrorPage({ statusCode, title, message }: { statusCode: 
             </Link>
           </CardContent>
         </Card>
-      </div>
+      </main>
     </>
   );
 }
