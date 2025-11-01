@@ -1,3 +1,4 @@
+import { RegisterForm } from '@/components/form/register-form';
 import { BaseLayout } from '@/components/layout/base-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { generateTitle } from '@/lib/utils';
@@ -20,7 +21,7 @@ export default function Register() {
             <CardDescription>Fill inputs below to register</CardDescription>
           </CardHeader>
           <CardContent>
-            {/* <LoginForm /> */}
+            <RegisterForm />
             <div className="mt-4 text-sm text-gray-600">
               Already have an account?{' '}
               <Link href={login.index()} className="text-base text-black underline underline-offset-4">
