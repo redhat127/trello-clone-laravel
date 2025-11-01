@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
         ->controller(AccountController::class)
         ->group(function () {
             Route::get('/', 'index')->name('index');
+            Route::delete('/', 'delete')->name('delete');
 
             Route::patch('/profile-details', 'profileDetailsPatch')
                 ->name('profileDetailsPatch');

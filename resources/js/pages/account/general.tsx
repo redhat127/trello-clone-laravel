@@ -1,3 +1,4 @@
+import { DeleteAccount } from '@/components/account/delete-account';
 import { ProfileDetailsForm } from '@/components/form/account/profile-details-form';
 import { AccountLayout } from '@/components/layout/account-layout';
 import { BaseLayout } from '@/components/layout/base-layout';
@@ -16,6 +17,19 @@ export default function AccountGeneral() {
         </CardHeader>
         <CardContent>
           <ProfileDetailsForm />
+        </CardContent>
+      </Card>
+      <Card className="border-red-600">
+        <CardHeader>
+          <CardTitle>
+            <h2 className="text-xl font-bold">Delete Account</h2>
+          </CardTitle>
+          <CardDescription className="text-red-600">
+            Permanently delete your account and all associated data. This action cannot be undone, so please proceed with caution
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <DeleteAccount />
         </CardContent>
       </Card>
     </>

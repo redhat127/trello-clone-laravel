@@ -8,15 +8,20 @@ class LogoutController extends Controller
 {
     public function post()
     {
-        Auth::logout();
-
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
+        self::logoutAction();
 
         return redirect()->route('home')
             ->with('flashMessage', [
                 'type' => 'success',
                 'text' => 'You are logged out',
             ]);
+    }
+
+    public static function logoutAction()
+    {
+        Auth::logout();
+
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
     }
 }
