@@ -25,16 +25,15 @@ jobs:
           tools: composer:v2
           coverage: xdebug
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
+      - name: Setup Bun
+        # Installs Bun, making 'bun install' and 'bun run' available
+        uses: oven-sh/setup-bun@v1
 
-      - name: Install Node Dependencies
-        run: npm ci
+      - name: Install Node Dependencies (Bun)
+        # Using bun install with --frozen-lockfile for a clean, consistent CI install
+        run: bun install --frozen-lockfile
 
-      - name: Install Dependencies
+      - name: Install PHP Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Copy Environment File
@@ -44,7 +43,8 @@ jobs:
         run: php artisan key:generate
 
       - name: Build Assets
-        run: npm run build
+        # Building frontend assets using Bun
+        run: bun run build
 
       - name: Tests
         run: ./vendor/bin/pest

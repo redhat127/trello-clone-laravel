@@ -24,19 +24,26 @@ jobs:
         with:
           php-version: '8.4'
 
+      - name: Setup Bun
+        # Installs Bun, making 'bun install' and 'bun run' available
+        uses: oven-sh/setup-bun@v1
+
       - name: Install Dependencies
         run: |
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-          npm install
+          # Using Bun for node module installation
+          bun install
 
       - name: Run Pint
         run: vendor/bin/pint
 
       - name: Format Frontend
-        run: npm run format
+        # Running format script using Bun
+        run: bun run format
 
       - name: Lint Frontend
-        run: npm run lint
+        # Running lint script using Bun
+        run: bun run lint
 
       # - name: Commit Changes
       #   uses: stefanzweifel/git-auto-commit-action@v5
